@@ -151,3 +151,8 @@ remote branch를 삭제하는 방법은 다음과 같다.
 
 $ git push origin :new_area
 
+
+6. branch 병합하기
+병합을 할 branch로 checkout 하여 이동한다음 다음 명령어를 작성한다.
+---> master 로 이동 후.
+$ git merge new_area
