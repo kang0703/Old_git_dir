@@ -143,8 +143,8 @@ $ git branch --delete new_area
 해당 명령어로 삭제되지 않는 경우가 있따.
 이러한경우 다음과 같이 강제로 삭제한다.
 
-$ git branch -D new_area
--d 소문자도 가능하다.
+$ git branch -d new_area
+HEAD에 병합되어 있지 않은 커밋이 있는 경우, 브랜치를 삭제할 수 없습니다. 병합되어 있지 않은 커밋이 있는 브랜치를 강제로 삭제하려면, -D 옵션을 붙여 실행합니다.
 
 위의 방법으로 Local branch를 삭제 하였다.
 remote branch를 삭제하는 방법은 다음과 같다.
