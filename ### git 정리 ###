@@ -132,3 +132,9 @@ git push -u origin new_area
 checkout 변경해도
 이걸하면 push or pull 떄 따로 뒤에 붙는 주소를 쓸 필요없다.
 참고)명령에서 사용한 -u 옵션은 --set-upstream 옵션의 짧은 표현인데 브랜치를 추적하도록 설정해서 이후 Push 나 Pull 할 때 좀 더 편하게 사용할 수 있다.
+
+
+
+
+
+ㅁㅇㄴㄻㅇㄴㄻㄴㅇㄹ
