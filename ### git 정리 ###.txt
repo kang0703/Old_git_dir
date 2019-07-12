@@ -157,3 +157,73 @@ $ git push origin :new_area
 병합을 할 branch로 checkout 하여 이동한다음 다음 명령어를 작성한다.
 ---> master 로 이동 후.
 $ git merge new_area
+
+
+
+
+
+
+##########################################
+##########################################
+##########################################
+##########################################
+
+[Git] git merge 특정 파일또는 폴더 제외 or 무시하기
+
+Git을 하게 되면
+내가 작업하는 공간에는 필요하지만 remote(원격)에 push를 무시해야 하는 경우가 있습니다.
+이런 경우는 소스 파일이라던가 올리면 충돌이 일어나 오류를 범할 수 있기 떄문입니다.
+
+특정 파일이나 폴더의 push를 막기 위해서는 다음과 같은 방법이 있습니다.
+
+.git 폴더가 있는 같은 선상에
+.gitignore 파일을 만들어 줍니다.
+
+ignore(무시하다)의 관리는 .gitignore 파일에서 하는데
+예를 들어 test.txt파일과 test 폴더를 ignore 한다고 가정합니다.
+무시할 파일및 폴더는 아래와 같이 작성해 줍니다.
+
+## 파일 무시
+test.txt
+
+## 다음과 같은 확장자는 전체 무시
+*.text
+*.exe
+*.zip
+
+## 폴더 무시
+test/
+
+폴더와 같은 경우 무시하는 폴더 하위의 파일이나 폴더 또한 ignore(무시) 됩니다.
+.gitignore 파일에서 # 뒤에 쓰는 내용은 주석처리 됩니다.
+
+.gitignore 파일에 작성 하였다면
+add > commit > push 까지 해야 ignore 가 적용 됩니다.
+
+$ git add .
+$ git commit -m "ignore file&folder config"
+$ git push origin master
+
+
+## 주의사항 ##
+기존의 git의 관리를 받고 있던(commit된 것들) 파일이나 폴더를
+.gitignore 파일에 작성하고 add > commit > push 하여도
+ignore(무시) 되지 않습니다.
+
+이럴때는 기존에 가지고 있는 cached를 치워야 합니다.
+다음과 같은 명령어를 써주세요.
+
+## 파일 이라면
+git rm --cached test.txt
+
+## 전체파일 이라면
+git rm --cached *.txt
+
+## 폴더 라면
+git rm --cached test/ -r
+
+git rm --cache 명령어는 Staging Area(add 를 하고나서의 영역)에서 파일을 제거하고 working directory(Local)에서는 파일을 유지하는 명령어입니다.
+위의 명령어를 실행한 후 꼭 commit을 해줘야 합니다.
+
+
+
